@@ -5,7 +5,7 @@ import joblib
 import sklearn
 
 #Import pre-trained model
-model = joblib.load("model/dbs.jl")
+model = joblib.load("model/DBS_SGD_model.pkl")
 
 
 @app.route("/", methods=["GET","POST"])
