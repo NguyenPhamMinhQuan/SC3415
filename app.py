@@ -20,5 +20,13 @@ def main():
 def dbs():
     return(render_template("dbs.html"))
 
+@app.route("/dbsPrediction", methods=["GET","POST"])
+def dbsPrediction():
+    q = float(request.form.get("q")) #wsgi always return string
+    r = model.predict([[q]])
+    r = r[0][0]
+
+    return(render_template("dbsPrediction.html", r=r))
+
 if __name__ == "__main__":
     app.run()
